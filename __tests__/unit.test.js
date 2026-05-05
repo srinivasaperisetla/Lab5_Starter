@@ -61,7 +61,7 @@ describe('isStrongPassword', () => {
   test('returns false when length is below minimum', () => {
     expect(isStrongPassword('Ab1')).toBe(false);
   });
-});
+}); 
 
 describe('isDate', () => {
   test('returns true for valid one-digit month/day date', () => {
