@@ -19,9 +19,7 @@ function init() {
     audio.src = `assets/audio/${selectedHorn}.mp3`;
   });
 
-  volumeSlider.addEventListener('input', () => {
-    const volumeValue = Number(volumeSlider.value);
-
+  const updateVolume = (volumeValue) => {
     if (volumeValue === 0) {
       volumeIcon.src = 'assets/icons/volume-level-0.svg';
       volumeIcon.alt = 'Volume level 0';
@@ -37,7 +35,14 @@ function init() {
     }
 
     audio.volume = volumeValue / 100;
+  };
+
+  volumeSlider.addEventListener('input', () => {
+    const volumeValue = Number(volumeSlider.value);
+    updateVolume(volumeValue);
   });
+
+  updateVolume(Number(volumeSlider.value));
 
   playButton.addEventListener('click', () => {
     audio.play();
